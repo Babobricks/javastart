@@ -1,0 +1,42 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <p>input balance</p>
+        <input type="number" id="num1" value="0"><br>
+        <p>interest rate</p>
+        <input type="number" id="num2" value="0"><br>
+        <p>desired balance</p>
+        <input type="number" id="num3" value="0"><br>
+
+        <button onclick="interest()">compound</button><br>
+        <p id = "result"></p>
+        <p id = "result1"></p>
+        <p id = "result2"></p>
+        
+        
+
+        
+        
+        
+        <script>
+            
+            function interest(){
+                let bal=Number(document.getElementById("num1").value);
+                const mult=1+(Number(document.getElementById("num2").value)/100);
+                const end=Number(document.getElementById("num3").value);
+                let i=0
+                let output=""
+                while (bal < end) {
+                bal *= mult;
+                i++;
+                output += "Year"+i+": New balance is "+bal+"<br>";
+                document.getElementById("result").innerHTML=output
+                }
+            }
+                
+            
+        </script>
+    </body>
+</html>

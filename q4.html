@@ -1,0 +1,33 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <p>how many numbers</p>
+        <input type="number" id="count" value="0"><br>
+        <button onclick="average()">start</button><br>
+        <p id = "result"></p>
+        <p id = "result1"></p>
+        
+        
+
+        
+        
+        
+        <script>
+            
+            function average(){
+                let total=0;
+                let count = Number(document.getElementById("count").value);
+                for(let i=0;i<count;i+=1){
+                let num = Number(prompt("Enter number"));
+                total+=num;             
+                }
+                let mean=total/count; 
+                document.getElementById("result").innerHTML= "The total is: " + total;
+                document.getElementById("result1").innerHTML= "The mean is: " + mean;
+            }
+        </script>
+    </body>
+</html>
+

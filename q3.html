@@ -1,40 +1,88 @@
 <!DOCTYPE html>
 <html>
-    <body>
+<head>
+
+</head>
+<body>
+    <p>Anlysis</p>
+    <input type="number" id="num1" value="0"><br>
+    <p>Design</p>
+    <input type="number" id="num2" value="0"><br>
+    <p>Implementation</p>
+    <input type="number" id="num3" value="0"><br>
+    <p>Evaluation</p>
+    <input type="number" id="num4" value="0"><br>
+
+    <button onclick="Grade()">Grade the Portfolio</button><br>
+
+    <p id="Mark">Total Mark: </p><br>
+    <p id="grade">Grade: </p><br>
+    <p id="need">Marks Needed for next grade: </p><br>
 
 
+    <script>
+        function Grade() {
+            let mark1 = parseFloat(document.getElementById("num1").value);
+            let mark2 = parseFloat(document.getElementById("num2").value);
+            let mark3 = parseFloat(document.getElementById("num3").value);
+            let mark4 = parseFloat(document.getElementById("num4").value);
 
-        
+            let total = mark1 + mark2 + mark3 + mark4
+            let Grade = grade(total);
+            let needs = need(total);
 
-        <input type = "number" id = "num1" value = "0">
-        <input type = "number" id = "num2" value = "0">
-        <input type = "number" id = "num3" value = "0">
-        <input type = "number" id = "num4" value = "0">
-        <button onclick= "addNumbers()">Add Numbers</button>
-        <p id = "result">Answer here!</p>
-        <script>
-            function addNumbers() {
-                let number1 = parseFloat(document.getElementById("num1").value);
-                let number2 = parseFloat(document.getElementById("num2").value);
-                let number3 = parseFloat(document.getElementById("num3").value);
-                let number4 = parseFloat(document.getElementById("num4").value);
-                
-                let sum = number1 + number2 + number3 + number4;
-                choose= document.getElementById("result");
-                choose.innerHTML = "The total mark is: " + sum;
-                if(sum<"4"){
-                    let grade="U";
-                }
-                if("3">sum<"13"){
-                    let grade="G";
-                }
-                
+            document.getElementById("Mark").innerHTML = "Total Mark: " + total;
+            document.getElementById("grade").innerHTML = "Grade: " + Grade;
+            document.getElementById("need").innerHTML = "Marks Needed for next grade: " + needs;
+        }
 
-                choose.innerHTML = "The total mark is: " + sum +  "<br>The grade is:"+ grade;
-                
-
+        function grade(total) {
+            if (total >= 80) {
+                return "A+";
+            } else if (total >= 67) {
+                return "A";
+            } else if (total >= 54) {
+                return "B";
+            } else if (total >= 41) {
+                return "C";
+            } else if (total >= 31) {
+                return "D";
+            } else if (total >= 22) {
+                return "E";
+            } else if (total >= 13) {
+                return "F";
+            } else if (total >= 4) {
+                return "G";
+            } else if (total >= 0) {
+                return "U";
+            } else {
+                return "F";
             }
-        </script>
+        }
 
-    </body>
+        function need(total) {
+            let currentGrade = grade(total);
+
+            if (currentGrade === "A+") {
+                return 0;
+            } else if (currentGrade === "A") {
+                return 80 - total;
+            } else if (currentGrade === "B") {
+                return 67 - total;
+            } else if (currentGrade === "C") {
+                return 54 - total;
+            } else if (currentGrade === "D") {
+                return 41 - total;
+            } else if (currentGrade === "E") {
+                return 31 - total;
+            } else if (currentGrade === "F") {
+                return 22 - total;
+            } else if (currentGrade === "G") {
+                return 13 - total;
+            } else if (currentGrade === "U") {
+                return 4 - total;
+            }
+        }
+    </script>
+</body>
 </html>
